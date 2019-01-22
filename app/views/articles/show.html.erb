@@ -6,6 +6,10 @@
     <strong>Body: </strong>
     <%= @article.body %>
 </p>
+<p>
+    <strong>Tags:</strong>
+    <%= @article.all_tags %>
+</p>
 
 
 <%= link_to 'Edit', edit_article_path(@article) %>
