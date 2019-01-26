@@ -1,8 +1,17 @@
 class ArticlesController < ApplicationController
 
     def index
-        @articles = Article.all
-        
+        if params[:tag]
+            sql = "
+                select * from articles 
+                inner join taggings t on articles.id = t.article_id 
+                inner join tags t2 on t.tag_id = t2.id
+                where t2.name = '#{params[:tag]}'
+            "
+            @articles = Article.find_by_sql(sql)
+        else
+            @articles = Article.all     
+        end
     end
 
     def new
@@ -36,6 +45,8 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
         @comments = Comment.where("article_id=?",params[:id])
         session[:article] = @article.id
+     
+
     end
 
     private

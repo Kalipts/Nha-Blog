@@ -8,7 +8,7 @@
 </p>
 <p>
     <strong>Tags:</strong>
-    <%= @article.all_tags %>
+    <%= raw @article.all_tags.map { |t| link_to t, tag_path(t)}.join(', ') %> 
 </p>
 
 

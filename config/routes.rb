@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-
+  get 'tags/:tag', to: 'articles#index', as: :tag
   get 'sessions/create'
   get 'sessions/destroy'
   root 'articles#index'
