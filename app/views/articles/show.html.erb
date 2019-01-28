@@ -2,10 +2,13 @@
     <strong>Title: </strong>
     <%= @article.title %>
 </p>
-<p>
-    <strong>Body: </strong>
-    <%= @article.body %>
-</p>
+
+ <div class="content">
+    <%= emojify markdown @article.body %>
+ </div>   
+   
+
+
 <p>
     <strong>Tags:</strong>
     <%= raw @article.all_tags.map { |t| link_to t, tag_path(t)}.join(', ') %> 
@@ -47,3 +50,6 @@
       <%= comment.content %>
   </h3>
 <% end %>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
