@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
   root 'articles#index'
-  resources :articles do
+  resources :articles,  param: :slug do
     resources :comments
   end
 

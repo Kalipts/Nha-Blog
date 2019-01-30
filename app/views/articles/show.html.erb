@@ -22,19 +22,16 @@
 
 <div>
     <% if current_user %>
-      
       <h2>Comments</h2>
-      
       <%= form_with(model: [@article, @article.comments.build]) do |f| %>
         <%= f.text_area :content, placeholder: "write comments here" %>
         <br>
         <%= f.submit "enter", class: "btn btn-primary" %>
       <% end %>
-
     <% else %>
-    <div data-onsuccess="onSignIn">
-        <%= link_to "Bình loạn", "/auth/google_oauth2", id: "onSignIn" %>
-    </div>
+    
+        <%= link_to "Bình loạn", "/auth/google_oauth2" %>
+    
     <% end %>
     
 

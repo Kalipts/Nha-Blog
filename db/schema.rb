@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_01_22_144950) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_articles_on_slug", unique: true
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,6 +59,6 @@ ActiveRecord::Schema.define(version: 2019_01_22_144950) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "taggings", "articles"
-  add_foreign_key "taggings", "tags"
+  add_foreign_key "taggings", "articles", on_delete: :cascade
+  add_foreign_key "taggings", "tags", on_delete: :cascade
 end
