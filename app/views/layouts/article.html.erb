@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <title>dit con me</title>
+    <%= stylesheet_link_tag   'main' %>
+</head>
+
+<body class="bg-pattern">
+    <div class="main_content">
+        <div class="social-links__wrapper">
+            <a href="https://www.instagram.com/kalipts98" target="_blank" class="social-link">Instagram</a>
+            <a href="https://twitter.com/NHAPHAN4" target="_blank" class="social-link">Twitter</a>
+            <a href="https://www.facebook.com/kalipts" target="_blank" class="social-link">Facebook</a>
+        </div>
+        <div class="avatar__mobile"></div>
+        <h1>Chào, Mình là <strong>Nhã</strong>. designer  Một chàng trai với chiếc bụng gần phệ, rốn không lồi,
+             khuôn mặt luôn tỏ vẻ tư lự, trên thông thiên văn, dưới tường địa lý,
+                có tinh thần yêu nước nồng nàn
+        </h1>
+        <div class="side-projects__wrapper"></div>
+        
+          <%= yield %>
+                        
+        </div>
+    </div>
+    <div class="avatar">
+    </div>
+</body>
+</html>

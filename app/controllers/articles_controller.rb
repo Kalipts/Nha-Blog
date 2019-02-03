@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
 
+    layout 'article', only: [:index]
+    
+
     def index
         if params[:tag]
             @articles = Article.find_with_tag(params[:tag])
@@ -39,6 +42,9 @@ class ArticlesController < ApplicationController
         @article = Article.find_by(slug: params[:slug])
         @comments = Comment.where("article_id=?",params[:slug])
         session[:article] = @article.id
+        respond_to do |format|
+            format.html {render :layout => 'article_show'}
+        end
     end
 
     private

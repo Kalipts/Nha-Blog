@@ -1,21 +1,24 @@
-<p>
-    <strong>Title: </strong>
+
+<h2 class="side-project__title">
     <%= @article.title %>
+</h2>
+    <p class="side-project__date">June 2017</p>
+    <div class="tag">
+        <%= raw @article.all_tags.map { |t| link_to t, tag_path(t)}.join(', ') %> 
+     
+    </div>                
+<p class="side-project__description">
+    <%= emojify markdown @article.body %>
 </p>
 
- <div class="content">
-    <%= emojify markdown @article.body %>
- </div>   
-   
 
-
+<!-- 
 <p>
     <strong>Tags:</strong>
-    <%= raw @article.all_tags.map { |t| link_to t, tag_path(t)}.join(', ') %> 
-</p>
+</p> -->
 
 
-<%= link_to 'Edit', edit_article_path(@article) %>
+<!-- <%= link_to 'Edit', edit_article_path(@article) %>
 <%= link_to 'back', articles_path %> 
 
 
@@ -31,14 +34,11 @@
     <% else %>
     
         <%= link_to "Bình loạn", "/auth/google_oauth2" %>
-    
-    <% end %>
-    
-
-</div>
+    <% end %>    
+</div> -->
 
 
-<hr>
+<!-- <hr>
 <% @comments.each do |comment| %>
   <h5>
       <strong><%= comment.user.name %></strong> wrote <small>  <%= time_ago_in_words(comment.created_at)  %></small>
@@ -47,6 +47,6 @@
       <%= comment.content %>
   </h3>
 <% end %>
-
+ -->
 
 <script>hljs.initHighlightingOnLoad();</script>
